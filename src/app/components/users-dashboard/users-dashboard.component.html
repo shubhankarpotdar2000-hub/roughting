@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-end mt-3">
+    <button 
+routerLink="add"
+mat-raised-button color="primary"
+
+> Add more
+
+</button>
+</div>
+<ul
+
+class="list-item">
+    <li 
+    [routerLink]= "[user.userId]"
+    class="list-group-item" *ngFor="let user of usersArr">
+     {{user.userName}}
+    </li>
+</ul>

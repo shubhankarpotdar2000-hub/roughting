@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-body">
+        <h2 class="font-weight-bold mb-3">
+            {{isInEditMode? 'Update product' : 'Add product'}}
+        </h2>
+
+        <form [formGroup]="productForm" (ngSubmit)="onproductAdd()">
+            <div class="form-group">
+                <label for="canReturn">canReturn</label>
+                <select
+                    formControlName="canReturn"
+                    type="text" class="form-control"
+                    id="canReturn">
+
+                    <option [ngValue]="1">Yes</option>
+                    <option [ngValue]="0">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="pname">pname</label>
+                <input type="text" class="form-control" formControlName="pname">
+
+            </div>
+
+            <div class="form-group">
+                <label for="pstatus">pstatus</label>
+                <input type="text" class="form-control" formControlName="pstatus">
+
+            </div>
+
+            <button
+            *ngIf="!isInEditMode"
+            mat-raised-button color="primary">Add product</button>
+
+            <button
+            (click)="onUPdatep()"
+            *ngIf="isInEditMode"
+            mat-raised-button color="accent" type="button">Update product</button>
+        </form>
+    </div>
+</div>

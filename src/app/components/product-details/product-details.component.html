@@ -1,0 +1,44 @@
+<div class="col-md-6 mt-4">
+    <div class="card">
+    <div class="card-header">
+        <p class="m-0"> {{productObj.pname}}</p>
+    </div>
+    <div class="card-body">
+        <p class="m-0"> {{productObj.pstatus}}</p>
+    </div>
+
+    <div class="card-footer">
+        <div class="d-flex justify-content-between">
+            <button 
+            routerLink="edit"
+            mat-raised-button color="primary">
+                edit
+            </button>
+            <button
+            (click)="onRemove()"
+            mat-raised-button color="accent">
+                remove
+            </button>
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- <div class="card">
+    <div class="card-body">
+        <p class="m-0">
+            The product is {{productObj.pname}} with status {{productObj.pstatus}}
+
+        </p>
+    </div>
+    <div class="card-footer">
+
+    </div>
+</div> -->
+
+
+<!-- 
+<hr>
+<button 
+[routerLink]="['/products' , 123]"
+mat-raised-button color="primary">go to (123)</button> -->

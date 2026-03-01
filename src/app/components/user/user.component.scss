@@ -1,0 +1,63 @@
+.main-container {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  align-items: flex-start;
+}
+
+
+.profile-img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.username {
+  margin-bottom: 5px;
+}
+
+.role {
+  font-size: 14px;
+  color: gray;
+  margin-left: 6px;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-card {
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 15px;
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: white;
+}
+
+.active {
+  background-color: #4caf50;
+}
+
+.inactive {
+  background-color: gray;
+}
+
+.address-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}

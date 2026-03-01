@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-md-10  offset-1">
+        <div class="card p-3">
+            <form [formGroup]="usersForm" (ngSubmit)="onAddNew()">
+                <div class="form-group">
+                    <label for="userName">User Name</label>
+                    <input type="text" class="form-control" formControlName="userName">
+                </div>
+                <strong
+                *ngIf="controls['userName'].touched && controls['userName'].hasError('required')"
+                >
+                    username is a required field..... 
+                </strong>
+                <div class="form-group">
+                    <label for="profileImage">User ImgUrl</label>
+                    <input type="text" class="form-control" formControlName="profileImage">
+                </div>
+                <div class="form-group">
+                    <label for="userRole">User Role</label>
+                    <select class="form-control" formControlName="userRole">
+                        <option *ngFor="let role of userRoles" [value]="role">
+                            {{role}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="experienceYears">Experience Years</label>
+                    <select class="form-control" formControlName="experienceYears">
+                        <option *ngFor="let exp of ExpYersArr" [value]="exp">
+                            {{exp}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="isActive">Is Active</label>
+                    <select class="form-control" formControlName="isActive">
+                        <option [ngValue]="true">Yes</option>
+                        <option [ngValue]="false">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="profileDescription">Profile Description</label>
+                    <textarea type="text" row="4" class="form-control" formControlName="profileDescription"></textarea>
+                </div>
+                <h4>Skills</h4>
+                <div class="form-group">
+                    <div formArrayName="skills">
+                        <div class="row mb-3" *ngFor="let skill of skillsArr.controls let i = index">
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" [formControlName]="i">
+                            </div>
+                            <div class="col-md-2" *ngIf="i > 0">
+                                <button (click)="onRemove(i)" type="button" mat-raised-button
+                                    color="warn">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button [disabled]="skillsArr.invalid" (click)="onAddSkills()" type="button"
+                                mat-raised-button color="primary">Add Skill</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row" formGroupName="address">
+                        <div class="col-md-6" formGroupName="current">
+                            <h4>Current Address</h4>
+                            <label for="country">Country</label>
+                            <input type="text" class="form-control" formControlName="country">
+                            <label for="state">State</label>
+                            <input type="text" class="form-control" formControlName="state">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" formControlName="city">
+                            <label for="zipcode">Zipcode</label>
+                            <input type="text" class="form-control" formControlName="zipcode">
+                        </div>
+                        <div class="col-md-6" formGroupName="permanent">
+                            <h4>Permanent Address</h4>
+                            <label for="country">Country</label>
+                            <input type="text" class="form-control" formControlName="country">
+                            <label for="state">State</label>
+                            <input type="text" class="form-control" formControlName="state">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" formControlName="city">
+                            <label for="zipcode">Zipcode</label>
+                            <input type="text" class="form-control" formControlName="zipcode">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="isAddSame"><input type="checkbox" formControlName="isAddSame">Is Address Same</label>
+                </div>
+                <button *ngIf="!isInEditMode" mat-raised-button color="primary">Submit User</button>
+                 <button (click)="onUpdate()"  *ngIf="isInEditMode" type="button" mat-raised-button color="primary">Update User</button>
+            </form>
+        </div>
+    </div>
+</div>
